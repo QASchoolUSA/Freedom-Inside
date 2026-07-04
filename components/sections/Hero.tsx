@@ -20,13 +20,13 @@ export function Hero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[50%_52%] sm:object-[50%_44%]"
+        className="object-cover object-[50%_52%] sm:object-[50%_36%]"
       />
       {/* Darken top and bottom for legibility, keep the sunset visible in the middle */}
-      <div className="absolute inset-0 bg-gradient-to-b from-teal-950/80 via-teal-950/15 to-teal-950/75" />
+      <div className="absolute inset-0 bg-gradient-to-b from-teal-950/85 via-teal-950/25 via-45% to-teal-950/75" />
       <div className="sparkles absolute inset-0 opacity-70" />
 
-      <div className="relative mx-auto flex w-full max-w-3xl flex-1 flex-col items-center px-5 pb-8 pt-20 text-center">
+      <div className="relative mx-auto flex w-full max-w-3xl flex-1 flex-col items-center px-5 pb-8 pt-16 text-center">
         {/* Top zone: logo + title + leads, anchored high like the reference */}
         <Reveal>
           <Image
@@ -41,7 +41,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h1 className="mt-2 font-display text-[2rem] font-semibold uppercase leading-tight tracking-[0.08em] sm:text-5xl short:text-4xl">
+          <h1 className="mt-1.5 font-display text-[2rem] font-semibold uppercase leading-tight tracking-[0.08em] sm:text-5xl short:text-4xl">
             <span className="text-gold-gradient drop-shadow-[0_2px_12px_rgba(217,179,106,0.35)]">
               {t("title")}
             </span>
@@ -50,7 +50,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mx-auto mt-4 max-w-sm text-[15px] leading-relaxed text-cream-50 sm:max-w-lg sm:text-lg sm:leading-relaxed short:mt-3 short:text-base">
+          <p className="mx-auto mt-3 max-w-sm text-[15px] leading-relaxed text-cream-50 sm:max-w-lg sm:text-lg sm:leading-relaxed short:text-base">
             {t("lead1")}
           </p>
           <p className="mx-auto mt-3 max-w-xs text-[13px] leading-relaxed text-cream-100/85 sm:max-w-sm sm:text-[15px] short:mt-2 short:text-sm">
