@@ -72,10 +72,10 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mx-auto mt-2.5 max-w-[18rem] text-sm leading-snug text-cream-50 sm:mt-3 sm:max-w-lg sm:text-lg sm:leading-relaxed short:text-base">
+          <p className="mx-auto mt-3 max-w-[21rem] font-display text-lg font-medium leading-relaxed text-cream-50 drop-shadow-[0_2px_12px_rgba(7,28,32,0.85)] sm:mt-4 sm:max-w-xl sm:text-2xl short:text-xl">
             {t("lead1")}
           </p>
-          <p className="mx-auto mt-2 max-w-[16rem] text-xs leading-snug text-cream-100/85 sm:mt-3 sm:max-w-sm sm:text-[15px] short:mt-2 short:text-sm">
+          <p className="mx-auto mt-3 max-w-[20rem] font-display text-base leading-relaxed text-cream-50/95 drop-shadow-[0_2px_10px_rgba(7,28,32,0.8)] sm:mt-4 sm:max-w-lg sm:text-xl short:text-lg">
             {t("lead2")}
           </p>
         </Reveal>
@@ -85,31 +85,54 @@ export function Hero() {
 
         {/* Bottom zone: features, price, CTA — as in the reference */}
         <Reveal delay={0.1} className="w-full">
-          <div className="mx-auto grid w-full max-w-md grid-cols-3 items-start divide-x divide-gold-500/40">
+          <div className="mx-auto grid w-full max-w-md grid-cols-3 grid-rows-[auto_auto_auto] gap-y-2">
             {features.map((f, i) => {
               const Icon = FEATURE_ICONS[i];
-              const labelLines = f.label.split("\n");
-              const topText = f.value || labelLines[0];
-              const bottomText = f.value ? f.label : labelLines[1] ?? "";
               return (
-                <div key={i} className="flex flex-col items-center gap-2 px-2">
+                <div
+                  key={`icon-${i}`}
+                  className={`flex justify-center px-2 ${i > 0 ? "border-l border-gold-500/40" : ""}`}
+                  style={{ gridColumn: i + 1, gridRow: 1 }}
+                >
                   <div className="flex h-13 w-13 shrink-0 items-center justify-center rounded-full border border-gold-500/80 bg-teal-950/50 text-gold-300 shadow-glow backdrop-blur-[2px] sm:h-15 sm:w-15 short:h-13 short:w-13">
                     <Icon className="h-6 w-6 sm:h-6.5 sm:w-6.5" />
                   </div>
-                  <div className="flex w-full flex-col items-center leading-tight">
-                    <div
-                      className={`flex min-h-[1.375rem] items-center justify-center sm:min-h-[1.5rem] ${
-                        f.value
-                          ? "font-display text-lg font-semibold text-cream-50 sm:text-xl"
-                          : "text-[10px] font-semibold uppercase tracking-[0.14em] text-cream-50 sm:text-[11px]"
-                      }`}
-                    >
+                </div>
+              );
+            })}
+            {features.map((f, i) => {
+              const labelLines = f.label.split("\n");
+              const topText = f.value || labelLines[0];
+              return (
+                <div
+                  key={`top-${i}`}
+                  className={`flex items-end justify-center px-2 ${i > 0 ? "border-l border-gold-500/40" : ""}`}
+                  style={{ gridColumn: i + 1, gridRow: 2 }}
+                >
+                  {f.value ? (
+                    <span className="font-display text-lg font-semibold leading-none text-cream-50 sm:text-xl">
+                      {f.value}
+                    </span>
+                  ) : (
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.14em] leading-none text-cream-50 sm:text-[11px]">
                       {topText}
-                    </div>
-                    <div className="mt-0.5 flex min-h-[0.875rem] items-center justify-center text-[10px] font-semibold uppercase tracking-[0.14em] text-cream-50 sm:min-h-[1rem] sm:text-[11px]">
-                      {bottomText}
-                    </div>
-                  </div>
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+            {features.map((f, i) => {
+              const labelLines = f.label.split("\n");
+              const bottomText = f.value ? f.label : labelLines[1] ?? "";
+              return (
+                <div
+                  key={`bottom-${i}`}
+                  className={`flex items-start justify-center px-2 ${i > 0 ? "border-l border-gold-500/40" : ""}`}
+                  style={{ gridColumn: i + 1, gridRow: 3 }}
+                >
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.14em] leading-none text-cream-50 sm:text-[11px]">
+                    {bottomText}
+                  </span>
                 </div>
               );
             })}
