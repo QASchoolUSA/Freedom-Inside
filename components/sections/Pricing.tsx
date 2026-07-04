@@ -36,22 +36,29 @@ export function Pricing() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="mt-12 grid grid-cols-3 divide-x divide-gold-500/30">
+          <div className="mt-12 grid grid-cols-3 items-start divide-x divide-gold-500/30">
             {features.map((f, i) => {
               const Icon = ICONS[i];
+              const labelLines = f.label.split("\n");
+              const topText = f.value || labelLines[0];
+              const bottomText = f.value ? f.label : labelLines[1] ?? "";
               return (
                 <div key={i} className="flex flex-col items-center gap-3 px-3">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold-500/70 bg-teal-950/60 text-gold-400 shadow-glow">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-gold-500/70 bg-teal-950/60 text-gold-400 shadow-glow">
                     <Icon className="h-7 w-7" />
                   </div>
-                  <div className="leading-tight">
-                    {f.value && (
-                      <div className="font-display text-2xl font-semibold text-cream-50">
-                        {f.value}
-                      </div>
-                    )}
-                    <div className="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-cream-100/85 sm:text-xs">
-                      {f.label}
+                  <div className="flex w-full flex-col items-center leading-tight">
+                    <div
+                      className={`flex min-h-[1.75rem] items-center justify-center ${
+                        f.value
+                          ? "font-display text-2xl font-semibold text-cream-50"
+                          : "text-[11px] font-semibold uppercase tracking-[0.14em] text-cream-100/85 sm:text-xs"
+                      }`}
+                    >
+                      {topText}
+                    </div>
+                    <div className="mt-0.5 flex min-h-[1rem] items-center justify-center text-[11px] font-semibold uppercase tracking-[0.14em] text-cream-100/85 sm:text-xs">
+                      {bottomText}
                     </div>
                   </div>
                 </div>

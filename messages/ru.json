@@ -170,7 +170,7 @@
     "features": [
       { "value": "10", "label": "видеоуроков" },
       { "value": "12", "label": "практик" },
-      { "value": "", "label": "обратная связь" }
+      { "value": "", "label": "обратная\nсвязь" }
     ],
     "oldPrice": "500 $",
     "nowLabel": "сейчас",
