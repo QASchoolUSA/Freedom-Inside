@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  /* Deep teal-navy backgrounds (dark sections) */
+  --color-teal-950: #06232b;
+  --color-teal-900: #0b3540;
+  --color-teal-800: #10444f;
+  --color-teal-700: #17525e;
+
+  /* Warm gold accents */
+  --color-gold-300: #f0dfae;
+  --color-gold-400: #e3c688;
+  --color-gold-500: #d9b36a;
+  --color-gold-600: #c9a05a;
+  --color-gold-700: #a97f3e;
+
+  /* Cream / parchment cards & light sections */
+  --color-cream-50: #faf6ec;
+  --color-cream-100: #f5eede;
+  --color-cream-200: #efe4cc;
+  --color-cream-300: #e5d5b4;
+
+  /* Text on light backgrounds */
+  --color-ink: #14343d;
+  --color-ink-soft: #33555e;
+
+  /* Dark-red emphasis on light cards */
+  --color-rust: #8b3a2e;
+
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-manrope);
+
+  --shadow-card: 0 10px 40px -12px rgba(4, 26, 32, 0.45);
+  --shadow-glow: 0 0 24px rgba(217, 179, 106, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-teal-950);
+  color: var(--color-cream-100);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(217, 179, 106, 0.4);
+}
+
+/* Gold gradient text used for big headings on dark backgrounds */
+.text-gold-gradient {
+  background: linear-gradient(180deg, #f5e7c0 0%, #e3c688 45%, #c9a05a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Thin gold ring used on cream cards */
+.gold-ring {
+  border: 1px solid rgba(217, 179, 106, 0.75);
+  box-shadow:
+    0 0 0 1px rgba(255, 240, 200, 0.15) inset,
+    0 8px 30px -10px rgba(3, 20, 25, 0.55);
+}
+
+/* Parchment card surface */
+.parchment {
+  background:
+    radial-gradient(120% 90% at 15% 10%, #fbf7ee 0%, #f5eede 55%, #efe4cc 100%);
+}
+
+/* Subtle starfield sparkle for dark sections */
+.sparkles {
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 22%, rgba(240, 223, 174, 0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 32% 68%, rgba(240, 223, 174, 0.55) 0%, transparent 100%),
+    radial-gradient(2px 2px at 58% 34%, rgba(240, 223, 174, 0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 74% 76%, rgba(240, 223, 174, 0.65) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 88% 18%, rgba(240, 223, 174, 0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 90%, rgba(240, 223, 174, 0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 6% 55%, rgba(240, 223, 174, 0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 94% 48%, rgba(240, 223, 174, 0.6) 0%, transparent 100%);
+}
