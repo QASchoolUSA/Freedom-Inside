@@ -14,17 +14,26 @@ export function Hero() {
 
   return (
     <section id="top" className="relative flex min-h-svh flex-col overflow-hidden">
-      {/* Blurred backdrop fills the area around the full portrait artwork */}
+      {/* Mobile: full-bleed cover — text sits on the image's dark sky, no empty gap at top */}
       <Image
         src="/images/hero.jpg"
         alt=""
         fill
         priority
         sizes="100vw"
-        className="scale-110 object-cover blur-2xl brightness-90"
+        className="object-cover object-[50%_46%] sm:hidden"
       />
-      {/* Full composition anchored to the bottom so nothing is cut off */}
-      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_18%)] sm:top-20 sm:[mask-composite:intersect] sm:[mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent),linear-gradient(to_bottom,transparent,black_10%)]">
+
+      {/* Desktop: blurred backdrop + full portrait anchored to bottom */}
+      <Image
+        src="/images/hero.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="hidden scale-110 object-cover blur-2xl brightness-90 sm:block"
+      />
+      <div className="absolute inset-0 hidden sm:block sm:top-20 sm:[mask-composite:intersect] sm:[mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent),linear-gradient(to_bottom,transparent,black_10%)]">
         <Image
           src="/images/hero.jpg"
           alt=""
@@ -34,46 +43,45 @@ export function Hero() {
           className="object-contain object-bottom"
         />
       </div>
-      {/* Tint the blurred sides toward the brand teal on wide screens */}
+
       <div className="absolute inset-0 hidden bg-gradient-to-r from-teal-950/80 via-teal-950/10 via-50% to-teal-950/80 sm:block" />
-      {/* Darken top and bottom for legibility, keep the sunset visible in the middle */}
-      <div className="absolute inset-0 bg-gradient-to-b from-teal-950/85 via-teal-950/25 via-45% to-teal-950/75" />
+      <div className="absolute inset-0 bg-gradient-to-b from-teal-950/92 from-0% via-teal-950/35 via-[38%] to-teal-950/78 sm:from-teal-950/85 sm:via-teal-950/25 sm:via-45% sm:to-teal-950/75" />
       <div className="sparkles absolute inset-0 opacity-70" />
 
-      <div className="relative mx-auto flex w-full max-w-3xl flex-1 flex-col items-center px-5 pb-8 pt-16 text-center">
+      <div className="relative mx-auto flex w-full max-w-3xl flex-1 flex-col items-center px-5 pb-8 pt-[4.25rem] text-center sm:pt-16">
         {/* Top zone: logo + title + leads, anchored high like the reference */}
         <Reveal>
           <Image
             src="/images/logo.png"
             alt=""
-            width={80}
-            height={80}
+            width={72}
+            height={72}
             priority
-            className="mx-auto h-16 w-16 rounded-full shadow-glow ring-1 ring-gold-400/60 sm:h-18 sm:w-18 short:h-14 short:w-14"
+            className="mx-auto h-14 w-14 rounded-full shadow-glow ring-1 ring-gold-400/60 sm:h-18 sm:w-18 short:h-14 short:w-14"
           />
-          <Lotus className="mx-auto mt-1.5 h-4 w-6 text-gold-400" />
+          <Lotus className="mx-auto mt-1 h-3.5 w-5 text-gold-400 sm:mt-1.5 sm:h-4 sm:w-6" />
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h1 className="mt-1.5 font-display text-3xl font-semibold leading-tight tracking-[0.04em] sm:text-5xl short:text-4xl">
+          <h1 className="mt-1 font-display text-[1.75rem] font-semibold leading-tight tracking-[0.04em] sm:mt-1.5 sm:text-5xl short:text-4xl">
             <span className="text-gold-gradient drop-shadow-[0_2px_12px_rgba(217,179,106,0.35)]">
               {t("title")}
             </span>
           </h1>
-          <Ornament className="mt-3" />
+          <Ornament className="mt-2 sm:mt-3" />
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mx-auto mt-3 max-w-[19rem] text-[15px] leading-relaxed text-cream-50 sm:max-w-lg sm:text-lg sm:leading-relaxed short:text-base">
+          <p className="mx-auto mt-2.5 max-w-[18rem] text-sm leading-snug text-cream-50 sm:mt-3 sm:max-w-lg sm:text-lg sm:leading-relaxed short:text-base">
             {t("lead1")}
           </p>
-          <p className="mx-auto mt-3 max-w-xs text-[13px] leading-relaxed text-cream-100/85 sm:max-w-sm sm:text-[15px] short:mt-2 short:text-sm">
+          <p className="mx-auto mt-2 max-w-[16rem] text-xs leading-snug text-cream-100/85 sm:mt-3 sm:max-w-sm sm:text-[15px] short:mt-2 short:text-sm">
             {t("lead2")}
           </p>
         </Reveal>
 
         {/* Middle zone: spacer so the photo shows through */}
-        <div className="min-h-28 flex-1 sm:min-h-8" aria-hidden />
+        <div className="min-h-16 flex-1 sm:min-h-8" aria-hidden />
 
         {/* Bottom zone: features, price, CTA — as in the reference */}
         <Reveal delay={0.1} className="w-full">
