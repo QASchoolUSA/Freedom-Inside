@@ -3,6 +3,9 @@
 /* Low-height desktop/laptop viewports (e.g. 1280x720) */
 @custom-variant short (@media (min-width: 40rem) and (max-height: 50rem));
 
+/* Short mobile phones (e.g. iPhone SE) */
+@custom-variant short-mobile (@media (max-width: 39.99rem) and (max-height: 740px));
+
 @theme {
   /* Deep teal-navy backgrounds (dark sections) */
   --color-teal-950: #06232b;
