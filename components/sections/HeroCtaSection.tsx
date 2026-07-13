@@ -114,14 +114,16 @@ export function HeroCtaSection({
 
         {offer ? (
           <Reveal delay={0.25} className="w-full">
-            <p className="mx-auto mt-4 flex max-w-md items-center justify-center gap-2.5 text-center short-mobile:mt-3 short:mt-3.5">
-              <span className="text-lg leading-none sm:text-xl" aria-hidden>
-                🎁
-              </span>
-              <span className="text-gold-gradient font-display text-[0.95rem] font-semibold leading-snug tracking-[0.02em] drop-shadow-[0_2px_10px_rgba(6,35,43,0.85)] sm:text-lg">
-                {offer}
-              </span>
-            </p>
+            <div className="mx-auto mt-4 flex justify-center short-mobile:mt-3 short:mt-3.5">
+              <p className="inline-flex max-w-[22rem] items-center gap-1.5 rounded-xl border border-gold-500/45 bg-gradient-to-r from-gold-500/15 via-gold-500/10 to-transparent px-3.5 py-2 text-left shadow-[0_0_24px_-8px_rgba(217,179,106,0.45)] backdrop-blur-[2px] sm:max-w-md sm:gap-2 sm:px-4 sm:py-2.5">
+                <span className="shrink-0 text-[1.05rem] leading-none sm:text-lg" aria-hidden>
+                  🎁
+                </span>
+                <span className="font-display text-[0.92rem] font-semibold leading-snug tracking-[0.01em] text-gold-300 sm:text-[1.05rem]">
+                  {offer}
+                </span>
+              </p>
+            </div>
           </Reveal>
         ) : null}
 
