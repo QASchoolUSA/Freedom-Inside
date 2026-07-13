@@ -8,7 +8,6 @@ import { ForYou } from "@/components/sections/ForYou";
 import { Format } from "@/components/sections/Format";
 import { Author } from "@/components/sections/Author";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { Guarantee } from "@/components/sections/Guarantee";
 import { Pricing } from "@/components/sections/Pricing";
 import { Faq } from "@/components/sections/Faq";
 import { Final } from "@/components/sections/Final";
@@ -33,7 +32,6 @@ export default async function LandingPage({
         <Format />
         <Author />
         <Testimonials />
-        <Guarantee />
         <Pricing />
         <Faq />
         <Final />
