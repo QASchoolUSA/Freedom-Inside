@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Pain } from "@/components/sections/Pain";
 import { Statement } from "@/components/sections/Statement";
@@ -34,6 +35,7 @@ export default async function LandingPage({
         <Faq />
         <Pricing />
       </main>
+      <Footer />
     </>
   );
 }
