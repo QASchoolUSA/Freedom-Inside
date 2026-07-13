@@ -14,7 +14,7 @@ export function Testimonials() {
   const quotes = t.raw("quotes") as string[];
 
   return (
-    <section id="reviews" className="relative overflow-hidden bg-cream-50 py-20 sm:py-28">
+    <section id="reviews" className="relative overflow-hidden bg-cream-50 py-20 [overflow-anchor:none] sm:py-28">
       <div className="absolute inset-y-0 left-0 w-1/3 bg-[radial-gradient(70%_50%_at_0%_20%,rgba(217,179,106,0.14),transparent_70%)]" />
 
       <div className="relative mx-auto max-w-5xl px-5">

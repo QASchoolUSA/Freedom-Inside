@@ -36,7 +36,6 @@ function ChatBubble({ message }: { message: ChatMessage }) {
 
   return (
     <motion.div
-      layout
       initial={{ opacity: 0, y: 14, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.38, ease: [0.22, 0.61, 0.36, 1] }}
@@ -135,8 +134,15 @@ export function LiveChatAnimation({
   useEffect(() => {
     const node = scrollRef.current;
     if (!node) return;
-    node.scrollTo({ top: node.scrollHeight, behavior: reduceMotion ? "auto" : "smooth" });
-  }, [visibleCount, typing, conversationIndex, reduceMotion]);
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.matchMedia("(max-width: 640px)").matches;
+
+    node.scrollTo({
+      top: node.scrollHeight,
+      behavior: prefersReducedMotion || isMobile ? "auto" : "smooth",
+    });
+  }, [visibleCount, typing, conversationIndex]);
 
   if (reduceMotion) {
     const fallback = conversations[0]?.messages ?? [];
@@ -173,14 +179,23 @@ export function LiveChatAnimation({
 
       <div
         ref={scrollRef}
-        className="chat-pattern relative max-h-[28rem] space-y-3 overflow-y-auto px-3 py-4 sm:max-h-[32rem] sm:px-4 sm:py-5"
+        className="chat-pattern relative h-[28rem] space-y-3 overflow-y-auto overscroll-contain [overflow-anchor:none] px-3 py-4 sm:h-[32rem] sm:px-4 sm:py-5"
       >
-        <AnimatePresence mode="popLayout">
-          {messages.slice(0, visibleCount).map((message, index) => (
-            <ChatBubble key={`${conversationIndex}-${index}`} message={message} />
-          ))}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={conversationIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="space-y-3"
+          >
+            {messages.slice(0, visibleCount).map((message, index) => (
+              <ChatBubble key={`${conversationIndex}-${index}`} message={message} />
+            ))}
+            {typing && <TypingIndicator />}
+          </motion.div>
         </AnimatePresence>
-        {typing && <TypingIndicator />}
       </div>
     </div>
   );

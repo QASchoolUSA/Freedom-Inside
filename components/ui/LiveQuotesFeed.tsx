@@ -33,30 +33,43 @@ export function LiveQuotesFeed({ quotes }: { quotes: string[] }) {
   }, [started, visibleCount, quotes, reduceMotion]);
 
   return (
-    <div ref={containerRef} className="space-y-4">
-      {quotes.slice(0, visibleCount).map((quote, index) => (
-        <motion.figure
-          key={index}
-          initial={reduceMotion ? false : { opacity: 0, y: 18, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
-          className="relative rounded-2xl border border-cream-300 bg-white px-6 py-5 shadow-[0_6px_20px_-8px_rgba(20,52,61,0.18)]"
-        >
-          <span className="absolute left-4 top-1 font-display text-4xl text-gold-600" aria-hidden>
-            “
-          </span>
-          <blockquote className="pl-5 font-display text-[1.02rem] italic leading-relaxed text-ink sm:text-[1.05rem]">
-            {quote}
-          </blockquote>
-          <motion.span
-            className="absolute right-4 top-4 h-2 w-2 rounded-full bg-emerald-500"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 420, damping: 18 }}
-            aria-hidden
-          />
-        </motion.figure>
-      ))}
+    <div ref={containerRef} className="space-y-4 [overflow-anchor:none]">
+      {quotes.map((quote, index) => {
+        const isVisible = index < visibleCount;
+
+        return (
+          <motion.figure
+            key={index}
+            initial={false}
+            animate={
+              reduceMotion || isVisible
+                ? { opacity: 1, y: 0 }
+                : { opacity: 0, y: 10 }
+            }
+            transition={{ duration: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
+            aria-hidden={!isVisible}
+            className={`relative rounded-2xl border border-cream-300 bg-white px-6 py-5 shadow-[0_6px_20px_-8px_rgba(20,52,61,0.18)] ${
+              isVisible ? "" : "invisible pointer-events-none"
+            }`}
+          >
+            <span className="absolute left-4 top-1 font-display text-4xl text-gold-600" aria-hidden>
+              “
+            </span>
+            <blockquote className="pl-5 font-display text-[1.02rem] italic leading-relaxed text-ink sm:text-[1.05rem]">
+              {quote}
+            </blockquote>
+            {isVisible && (
+              <motion.span
+                className="absolute right-4 top-4 h-2 w-2 rounded-full bg-emerald-500"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: "spring", stiffness: 420, damping: 18 }}
+                aria-hidden
+              />
+            )}
+          </motion.figure>
+        );
+      })}
     </div>
   );
 }
