@@ -14,6 +14,7 @@ type HeroCtaSectionProps = {
   nowLabel: string;
   price: string;
   note?: string;
+  offer?: string;
   priority?: boolean;
   topPadding?: string;
   mobileImagePosition?: string;
@@ -30,6 +31,7 @@ export function HeroCtaSection({
   nowLabel,
   price,
   note,
+  offer,
   priority = false,
   topPadding = "pt-16",
   mobileImagePosition = "object-[50%_46%]",
@@ -110,8 +112,21 @@ export function HeroCtaSection({
           </div>
         </Reveal>
 
+        {offer ? (
+          <Reveal delay={0.25} className="w-full">
+            <p className="mx-auto mt-4 flex max-w-md items-center justify-center gap-2.5 text-center short-mobile:mt-3 short:mt-3.5">
+              <span className="text-lg leading-none sm:text-xl" aria-hidden>
+                🎁
+              </span>
+              <span className="text-gold-gradient font-display text-[0.95rem] font-semibold leading-snug tracking-[0.02em] drop-shadow-[0_2px_10px_rgba(6,35,43,0.85)] sm:text-lg">
+                {offer}
+              </span>
+            </p>
+          </Reveal>
+        ) : null}
+
         <Reveal delay={0.3} className="w-full">
-          <CtaButton className="mt-5 w-full max-w-md !py-3 !text-base short-mobile:mt-3 sm:!text-lg short:mt-4">
+          <CtaButton className="mt-3.5 w-full max-w-md !py-3 !text-base short-mobile:mt-2.5 sm:!text-lg short:mt-3">
             {cta}
           </CtaButton>
           {note ? (

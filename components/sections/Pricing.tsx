@@ -14,6 +14,7 @@ export function Pricing() {
       oldPrice={t("oldPrice")}
       nowLabel={t("nowLabel")}
       price={t("price")}
+      offer={t("offer")}
       note={t("note")}
     />
   );
