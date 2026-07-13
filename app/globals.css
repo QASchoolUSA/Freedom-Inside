@@ -100,3 +100,13 @@ body {
     radial-gradient(circle at 84% 74%, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px);
   background-size: 48px 48px;
 }
+
+/* Hide native scrollbar for snap carousels */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
