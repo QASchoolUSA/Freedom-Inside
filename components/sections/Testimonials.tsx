@@ -1,11 +1,16 @@
 import { useTranslations } from "next-intl";
 import { Lotus } from "@/components/ui/Ornament";
 import { Reveal } from "@/components/ui/Reveal";
+import {
+  LiveChatAnimation,
+  type ChatConversation,
+} from "@/components/ui/LiveChatAnimation";
+import { LiveQuotesFeed } from "@/components/ui/LiveQuotesFeed";
 import { IconChat, IconQuote } from "@/components/ui/icons";
 
 export function Testimonials() {
   const t = useTranslations("testimonials");
-  const chat = t.raw("chat") as { side: "in" | "out"; text: string; time: string }[];
+  const conversations = t.raw("conversations") as ChatConversation[];
   const quotes = t.raw("quotes") as string[];
 
   return (
@@ -28,7 +33,6 @@ export function Testimonials() {
         </Reveal>
 
         <div className="mt-12 grid gap-10 sm:mt-16 md:grid-cols-2">
-          {/* Chat bubbles */}
           <Reveal>
             <div>
               <div className="flex items-center gap-3">
@@ -40,35 +44,12 @@ export function Testimonials() {
                 </h3>
               </div>
 
-              <div className="mt-6 space-y-4">
-                {chat.map((msg, i) => (
-                  <div
-                    key={i}
-                    className={`flex ${msg.side === "out" ? "justify-end" : "justify-start"}`}
-                  >
-                    <div
-                      className={`max-w-[85%] rounded-2xl px-5 py-3.5 text-[0.95rem] leading-relaxed shadow-[0_6px_20px_-8px_rgba(20,52,61,0.25)] ${
-                        msg.side === "out"
-                          ? "rounded-br-md bg-[#f3e3b6] text-[#5c4a22]"
-                          : "rounded-bl-md border border-cream-300 bg-white text-ink"
-                      }`}
-                    >
-                      <p>{msg.text}</p>
-                      <p
-                        className={`mt-1.5 text-right text-[11px] ${
-                          msg.side === "out" ? "text-[#a08a55]" : "text-ink-soft/60"
-                        }`}
-                      >
-                        {msg.time}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+              <div className="mt-6">
+                <LiveChatAnimation conversations={conversations} label={t("liveLabel")} />
               </div>
             </div>
           </Reveal>
 
-          {/* Short quotes */}
           <Reveal delay={0.1}>
             <div>
               <div className="flex items-center gap-3">
@@ -80,20 +61,8 @@ export function Testimonials() {
                 </h3>
               </div>
 
-              <div className="mt-6 space-y-4">
-                {quotes.map((quote, i) => (
-                  <figure
-                    key={i}
-                    className="relative rounded-2xl border border-cream-300 bg-white px-6 py-5 shadow-[0_6px_20px_-8px_rgba(20,52,61,0.18)]"
-                  >
-                    <span className="absolute left-4 top-1 font-display text-4xl text-gold-600" aria-hidden>
-                      “
-                    </span>
-                    <blockquote className="pl-5 font-display text-[1.05rem] italic leading-relaxed text-ink">
-                      {quote}
-                    </blockquote>
-                  </figure>
-                ))}
+              <div className="mt-6">
+                <LiveQuotesFeed quotes={quotes} />
               </div>
             </div>
           </Reveal>
