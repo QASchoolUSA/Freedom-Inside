@@ -10,53 +10,46 @@ export function FeatureIconsGrid({ className = "" }: { className?: string }) {
   const features = t.raw("features") as Feature[];
 
   return (
-    <div
-      role="list"
-      className={`mx-auto grid w-full max-w-xl grid-cols-4 grid-rows-[auto_auto_auto] ${className}`}
-    >
+    <ul className={`mx-auto flex w-full max-w-2xl items-start ${className}`}>
       {features.map((feature, index) => {
         const Icon = FEATURE_ICONS[index] ?? IconPlay;
-        const lines = feature.label.split("\n").filter(Boolean);
         const hasValue = feature.value.trim().length > 0;
 
         return (
-          <div
-            role="listitem"
+          <li
             key={index}
-            className={[
-              "col-span-1 row-span-3 grid grid-rows-subgrid px-2 sm:px-3",
-              index > 0 ? "border-l border-gold-500/35" : "",
-            ].join(" ")}
+            className="relative flex min-w-0 flex-1 list-none flex-col items-center px-2.5 text-center sm:px-5"
           >
-            {/* Track 1 — icons */}
-            <div className="flex items-center justify-center pb-2.5">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold-500/80 bg-teal-950/50 text-gold-300 shadow-glow backdrop-blur-[2px] sm:h-14 sm:w-14">
-                <Icon className="h-6 w-6" />
-              </div>
+            {index > 0 ? (
+              <span
+                aria-hidden
+                className="absolute bottom-1 left-0 top-1 w-px bg-gold-500/35"
+              />
+            ) : null}
+
+            {/* Icon — identical for every column */}
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold-500/80 bg-teal-950/50 text-gold-300 shadow-glow backdrop-blur-[2px]">
+              <Icon className="h-6 w-6" aria-hidden />
             </div>
 
-            {/* Track 2 — numbers / primary caption */}
-            <div className="flex items-center justify-center">
+            {/* Metric band — fixed height even when empty */}
+            <div className="mt-3 flex h-8 w-full shrink-0 items-center justify-center">
               {hasValue ? (
-                <span className="font-display text-xl font-semibold leading-none tabular-nums text-cream-50 sm:text-2xl">
+                <span className="font-display text-2xl font-semibold leading-none tabular-nums text-cream-50">
                   {feature.value}
                 </span>
-              ) : (
-                <span className="text-center text-[10px] font-semibold uppercase tracking-[0.16em] leading-none text-cream-50 sm:text-[11px]">
-                  {lines[0]}
-                </span>
-              )}
+              ) : null}
             </div>
 
-            {/* Track 3 — secondary caption */}
-            <div className="flex items-start justify-center pt-1">
-              <span className="max-w-[7rem] whitespace-pre-line text-center text-[10px] font-semibold uppercase tracking-[0.14em] leading-[1.3] text-cream-50 sm:text-[11px]">
-                {hasValue ? feature.label : (lines[1] ?? "")}
+            {/* Caption band — fixed height, top-aligned so first lines match */}
+            <div className="mt-1 flex h-9 w-full shrink-0 items-start justify-center">
+              <span className="whitespace-pre-line text-center text-[10px] font-semibold uppercase tracking-[0.14em] leading-[1.25] text-cream-50 sm:text-[11px]">
+                {feature.label}
               </span>
             </div>
-          </div>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
