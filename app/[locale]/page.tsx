@@ -10,7 +10,6 @@ import { Author } from "@/components/sections/Author";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Pricing } from "@/components/sections/Pricing";
 import { Faq } from "@/components/sections/Faq";
-import { Final } from "@/components/sections/Final";
 
 export default async function LandingPage({
   params,
@@ -32,9 +31,8 @@ export default async function LandingPage({
         <Format />
         <Author />
         <Testimonials />
-        <Pricing />
         <Faq />
-        <Final />
+        <Pricing />
       </main>
     </>
   );
