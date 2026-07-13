@@ -59,24 +59,16 @@ export function HeroCtaSection({
       />
 
       <div className="absolute inset-0 hidden bg-gradient-to-r from-teal-950/80 via-teal-950/10 via-50% to-teal-950/80 sm:block" />
-      <div className="absolute inset-0 bg-gradient-to-b from-teal-950/92 from-0% via-teal-950/35 via-[38%] to-teal-950/78 sm:from-teal-950/85 sm:via-teal-950/25 sm:via-45% sm:to-teal-950/75" />
+      <div className="absolute inset-0 bg-gradient-to-b from-teal-950/95 from-0% via-teal-950/55 via-[34%] to-teal-950/80 sm:from-teal-950/92 sm:via-teal-950/40 sm:via-42% sm:to-teal-950/78" />
       <div className="sparkles absolute inset-0 opacity-70" />
 
       <div className={`relative mx-auto flex w-full max-w-3xl max-sm:min-h-0 flex-1 flex-col items-center px-5 pb-8 text-center ${topPadding}`}>
         <Reveal>
-          <Image
-            src="/images/logo.png"
-            alt=""
-            width={72}
-            height={72}
-            priority={priority}
-            className="mx-auto h-14 w-14 rounded-full shadow-glow ring-1 ring-gold-400/60 short-mobile:h-12 short-mobile:w-12 sm:h-18 sm:w-18 short:h-14 short:w-14"
-          />
-          <Lotus className="mx-auto mt-1 h-3.5 w-5 text-gold-400 sm:mt-1.5 sm:h-4 sm:w-6" />
+          <Lotus className="mx-auto h-3.5 w-5 text-gold-400 sm:h-4 sm:w-6" />
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h2 className="mt-1 font-display text-[1.75rem] font-semibold leading-tight tracking-[0.04em] short-mobile:text-2xl sm:mt-1.5 sm:text-5xl short:text-4xl">
+          <h2 className="mt-2 font-display text-[1.75rem] font-semibold leading-tight tracking-[0.04em] short-mobile:text-2xl sm:mt-3 sm:text-5xl short:text-4xl">
             <span className="text-gold-gradient drop-shadow-[0_2px_12px_rgba(217,179,106,0.35)]">
               {title}
             </span>
@@ -84,11 +76,15 @@ export function HeroCtaSection({
           <Ornament className="mt-2 sm:mt-3" />
         </Reveal>
 
-        <Reveal delay={0.2}>
-          <p className="mx-auto mt-3 max-w-[21rem] font-display text-lg font-medium leading-relaxed text-cream-50 drop-shadow-[0_2px_12px_rgba(7,28,32,0.85)] short-mobile:mt-2 short-mobile:text-base sm:mt-4 sm:max-w-xl sm:text-2xl short:text-xl">
+        <Reveal delay={0.2} className="relative w-full">
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[120%] w-[min(100%,34rem)] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(6,35,43,0.72)_0%,rgba(6,35,43,0.35)_55%,transparent_78%)]"
+            aria-hidden
+          />
+          <p className="relative mx-auto mt-3 max-w-[21rem] font-display text-lg font-semibold leading-relaxed text-cream-50 [text-shadow:0_1px_2px_rgba(6,35,43,0.95),0_4px_18px_rgba(6,35,43,0.75),0_0_28px_rgba(6,35,43,0.45)] short-mobile:mt-2 short-mobile:text-base sm:mt-4 sm:max-w-xl sm:text-2xl short:text-xl">
             {lead1}
           </p>
-          <p className="mx-auto mt-3 max-w-[20rem] font-display text-base leading-relaxed text-cream-50/95 drop-shadow-[0_2px_10px_rgba(7,28,32,0.8)] short-mobile:mt-2 short-mobile:text-sm sm:mt-4 sm:max-w-lg sm:text-xl short:text-lg">
+          <p className="relative mx-auto mt-3 max-w-[20rem] font-display text-base font-medium leading-relaxed text-cream-50 [text-shadow:0_1px_2px_rgba(6,35,43,0.95),0_4px_16px_rgba(6,35,43,0.7),0_0_24px_rgba(6,35,43,0.4)] short-mobile:mt-2 short-mobile:text-sm sm:mt-4 sm:max-w-lg sm:text-xl short:text-lg">
             {lead2}
           </p>
         </Reveal>
