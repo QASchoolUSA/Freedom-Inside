@@ -15,6 +15,7 @@ export function Hero() {
       oldPrice={tp("oldPrice")}
       nowLabel={tp("nowLabel")}
       price={tp("price")}
+      offer={tp("offer")}
       priority
       topPadding="pt-[4.25rem] sm:pt-16"
     />
