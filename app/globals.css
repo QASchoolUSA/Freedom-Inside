@@ -63,16 +63,6 @@ body {
   color: transparent;
 }
 
-/* Hero lead copy: readable on photo without a background plate */
-.hero-lead {
-  color: #fff8ea;
-  -webkit-text-stroke: 0.35px rgba(6, 35, 43, 0.35);
-  text-shadow:
-    0 1px 0 rgba(6, 35, 43, 0.85),
-    0 2px 4px rgba(6, 35, 43, 0.7),
-    0 8px 22px rgba(6, 35, 43, 0.55);
-}
-
 /* Thin gold ring used on cream cards */
 .gold-ring {
   border: 1px solid rgba(217, 179, 106, 0.75);

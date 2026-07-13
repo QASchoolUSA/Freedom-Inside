@@ -59,8 +59,8 @@ export function HeroCtaSection({
       />
 
       <div className="absolute inset-0 hidden bg-gradient-to-r from-teal-950/80 via-teal-950/10 via-50% to-teal-950/80 sm:block" />
-      <div className="absolute inset-0 bg-gradient-to-b from-teal-950/90 from-0% via-teal-950/45 via-[36%] to-teal-950/78 sm:from-teal-950/88 sm:via-teal-950/30 sm:via-44% sm:to-teal-950/75" />
-      <div className="sparkles absolute inset-0 opacity-70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-teal-950/93 from-0% via-teal-950/50 via-[32%] to-teal-950/78 sm:from-teal-950/90 sm:via-teal-950/38 sm:via-40% sm:to-teal-950/75" />
+      <div className="sparkles absolute inset-0 opacity-55" />
 
       <div className={`relative mx-auto flex w-full max-w-3xl max-sm:min-h-0 flex-1 flex-col items-center px-5 pb-8 text-center ${topPadding}`}>
         <Reveal>
@@ -77,10 +77,10 @@ export function HeroCtaSection({
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="hero-lead mx-auto mt-3 max-w-[21rem] font-display text-lg font-medium leading-relaxed short-mobile:mt-2 short-mobile:text-base sm:mt-4 sm:max-w-xl sm:text-2xl short:text-xl">
+          <p className="mx-auto mt-3.5 max-w-[22rem] font-display text-xl font-semibold leading-snug tracking-[0.01em] text-cream-50 drop-shadow-[0_2px_10px_rgba(6,35,43,0.9)] short-mobile:mt-2.5 short-mobile:text-lg sm:mt-5 sm:max-w-2xl sm:text-3xl short:text-2xl">
             {lead1}
           </p>
-          <p className="hero-lead mx-auto mt-3 max-w-[20rem] font-display text-base leading-relaxed short-mobile:mt-2 short-mobile:text-sm sm:mt-4 sm:max-w-lg sm:text-xl short:text-lg">
+          <p className="mx-auto mt-3.5 max-w-[21rem] font-display text-lg font-medium leading-snug text-gold-300 drop-shadow-[0_2px_10px_rgba(6,35,43,0.9)] short-mobile:mt-2.5 short-mobile:text-base sm:mt-4 sm:max-w-xl sm:text-2xl short:text-xl">
             {lead2}
           </p>
         </Reveal>
