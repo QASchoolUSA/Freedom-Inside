@@ -90,17 +90,6 @@ body {
     radial-gradient(1px 1px at 94% 48%, rgba(240, 223, 174, 0.6) 0%, transparent 100%);
 }
 
-/* Messenger-style wallpaper for live chat testimonials */
-.chat-pattern {
-  background-color: #e8f0d8;
-  background-image:
-    radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.45) 0 1px, transparent 1px),
-    radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px),
-    radial-gradient(circle at 48% 62%, rgba(255, 255, 255, 0.3) 0 1px, transparent 1px),
-    radial-gradient(circle at 84% 74%, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-
 /* Hide native scrollbar for snap carousels */
 .no-scrollbar {
   -ms-overflow-style: none;
