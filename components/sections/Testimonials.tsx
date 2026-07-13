@@ -5,9 +5,8 @@ import {
   LiveChatAnimation,
   type ChatConversation,
 } from "@/components/ui/LiveChatAnimation";
-import { LiveQuotesFeed } from "@/components/ui/LiveQuotesFeed";
 import { TestimonialGallery } from "@/components/ui/TestimonialGallery";
-import { IconChat, IconQuote } from "@/components/ui/icons";
+import { IconChat } from "@/components/ui/icons";
 
 const GALLERY_IMAGES = [
   "/images/testimonials/01.jpg",
@@ -21,7 +20,6 @@ const GALLERY_IMAGES = [
 export function Testimonials() {
   const t = useTranslations("testimonials");
   const conversations = t.raw("conversations") as ChatConversation[];
-  const quotes = t.raw("quotes") as string[];
   const galleryAlts = t.raw("galleryAlts") as string[];
 
   const galleryImages = GALLERY_IMAGES.map((src, index) => ({
@@ -48,55 +46,32 @@ export function Testimonials() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-10 sm:mt-16 md:grid-cols-2">
-          <Reveal>
-            <div>
-              <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gold-600/50 text-gold-700">
-                  <IconChat className="h-4.5 w-4.5" />
-                </span>
-                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-ink">
-                  {t("chatLabel")}
-                </h3>
-              </div>
+        <Reveal className="mx-auto mt-12 max-w-xl sm:mt-16">
+          <div className="flex items-center justify-center gap-3">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gold-600/50 text-gold-700">
+              <IconChat className="h-4.5 w-4.5" />
+            </span>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-ink">
+              {t("chatLabel")}
+            </h3>
+          </div>
 
-              <div className="mt-6">
-                <LiveChatAnimation conversations={conversations} label={t("liveLabel")} />
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <div>
-              <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gold-600/50 text-gold-700">
-                  <IconQuote className="h-4.5 w-4.5" />
-                </span>
-                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-ink">
-                  {t("quotesLabel")}
-                </h3>
-              </div>
-
-              <div className="mt-6">
-                <LiveQuotesFeed quotes={quotes} />
-              </div>
-            </div>
-          </Reveal>
-        </div>
+          <div className="mt-6">
+            <LiveChatAnimation conversations={conversations} label={t("liveLabel")} />
+          </div>
+        </Reveal>
 
         <Reveal delay={0.12} className="mt-14">
-          <div className="flex flex-col items-center text-center sm:flex-row sm:items-end sm:justify-between sm:text-left">
-            <div>
-              <div className="flex items-center justify-center gap-3 sm:justify-start">
-                <span className="h-px w-10 bg-gold-600/45" />
-                <Lotus className="h-4 w-6 text-gold-700" />
-                <span className="h-px w-10 bg-gold-600/45" />
-              </div>
-              <h3 className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink">
-                {t("galleryLabel")}
-              </h3>
-              <p className="mt-2 text-sm text-ink-soft">{t("galleryHint")}</p>
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-3">
+              <span className="h-px w-10 bg-gold-600/45" />
+              <Lotus className="h-4 w-6 text-gold-700" />
+              <span className="h-px w-10 bg-gold-600/45" />
             </div>
+            <h3 className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink">
+              {t("galleryLabel")}
+            </h3>
+            <p className="mt-2 text-sm text-ink-soft">{t("galleryHint")}</p>
           </div>
 
           <div className="mt-7">
