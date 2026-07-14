@@ -79,10 +79,10 @@ export function HeroCtaSection({
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mx-auto mt-3.5 max-w-[22rem] font-display text-xl font-bold leading-snug tracking-[0.01em] text-cream-50 drop-shadow-[0_2px_10px_rgba(6,35,43,0.9)] short-mobile:mt-2.5 short-mobile:text-lg sm:mt-5 sm:max-w-2xl sm:text-3xl short:text-2xl">
+          <p className="mx-auto mt-3.5 max-w-[24rem] font-display text-[1.4rem] font-bold leading-snug tracking-[0.01em] text-cream-50 drop-shadow-[0_2px_10px_rgba(6,35,43,0.9)] short-mobile:mt-2.5 short-mobile:text-xl sm:mt-5 sm:max-w-2xl sm:text-[2.125rem] short:text-3xl">
             {lead1}
           </p>
-          <p className="mx-auto mt-3.5 max-w-[21rem] font-display text-lg font-bold leading-snug text-gold-300 drop-shadow-[0_2px_10px_rgba(6,35,43,0.9)] short-mobile:mt-2.5 short-mobile:text-base sm:mt-4 sm:max-w-xl sm:text-2xl short:text-xl">
+          <p className="mx-auto mt-3.5 max-w-[23rem] font-display text-[1.2rem] font-bold leading-snug text-gold-300 drop-shadow-[0_2px_10px_rgba(6,35,43,0.9)] short-mobile:mt-2.5 short-mobile:text-lg sm:mt-4 sm:max-w-xl sm:text-[1.75rem] short:text-2xl">
             {lead2}
           </p>
         </Reveal>
