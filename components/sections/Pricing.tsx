@@ -16,6 +16,7 @@ export function Pricing() {
       price={t("price")}
       offer={t("offer")}
       note={t("note")}
+      enhancedMotion
     />
   );
 }
