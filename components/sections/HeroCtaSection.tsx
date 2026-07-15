@@ -101,7 +101,7 @@ export function HeroCtaSection({
         ) : (
           <>
             <Reveal delay={0.1} className="w-full">
-              <FeatureIconsGrid />
+              <FeatureIconsGrid size="sm" />
             </Reveal>
 
             <Reveal delay={0.2} className="w-full">

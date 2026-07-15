@@ -10,18 +10,23 @@ const easeOut = [0.22, 0.61, 0.36, 1] as const;
 export function FeatureIconsGrid({
   className = "",
   animated = false,
+  size = "default",
 }: {
   className?: string;
   animated?: boolean;
+  size?: "default" | "sm";
 }) {
   const t = useTranslations("pricing");
   const features = t.raw("features") as { value: string; label: string }[];
   const reduce = useReducedMotion();
   const shouldAnimate = animated && !reduce;
+  const sm = size === "sm";
 
   return (
     <div
-      className={`mx-auto grid w-full max-w-lg grid-cols-2 sm:max-w-xl ${className}`}
+      className={`mx-auto grid w-full grid-cols-2 ${
+        sm ? "max-w-sm sm:max-w-md" : "max-w-lg sm:max-w-xl"
+      } ${className}`}
     >
       {features.map((f, i) => {
         const Icon = FEATURE_ICONS[i];
@@ -31,27 +36,53 @@ export function FeatureIconsGrid({
 
         const cell = (
           <>
-            <div className="flex h-13 w-13 shrink-0 items-center justify-center rounded-full border border-gold-500/80 bg-teal-950/50 text-gold-300 shadow-glow backdrop-blur-[2px] short-mobile:h-11 short-mobile:w-11 sm:h-15 sm:w-15 short:h-13 short:w-13">
-              <Icon className="h-6 w-6 sm:h-6.5 sm:w-6.5" />
+            <div
+              className={`flex shrink-0 items-center justify-center rounded-full border border-gold-500/80 bg-teal-950/50 text-gold-300 shadow-glow backdrop-blur-[2px] ${
+                sm
+                  ? "h-10 w-10 short-mobile:h-9 short-mobile:w-9 sm:h-11 sm:w-11"
+                  : "h-13 w-13 short-mobile:h-11 short-mobile:w-11 sm:h-15 sm:w-15 short:h-13 short:w-13"
+              }`}
+            >
+              <Icon
+                className={
+                  sm ? "h-4.5 w-4.5 sm:h-5 sm:w-5" : "h-6 w-6 sm:h-6.5 sm:w-6.5"
+                }
+              />
             </div>
             {f.value ? (
-              <span className="font-display text-lg font-semibold leading-none text-cream-50 sm:text-xl">
+              <span
+                className={`font-display font-semibold leading-none text-cream-50 ${
+                  sm ? "text-base sm:text-lg" : "text-lg sm:text-xl"
+                }`}
+              >
                 {f.value}
               </span>
             ) : (
-              <span className="text-[10px] font-semibold uppercase tracking-[0.14em] leading-none text-cream-50 sm:text-[11px]">
+              <span
+                className={`font-semibold uppercase tracking-[0.14em] leading-none text-cream-50 ${
+                  sm ? "text-[9px] sm:text-[10px]" : "text-[10px] sm:text-[11px]"
+                }`}
+              >
                 {topText}
               </span>
             )}
-            <span className="text-[10px] font-semibold uppercase tracking-[0.14em] leading-none text-cream-50 sm:text-[11px]">
+            <span
+              className={`font-semibold uppercase tracking-[0.14em] leading-none text-cream-50 ${
+                sm ? "text-[9px] sm:text-[10px]" : "text-[10px] sm:text-[11px]"
+              }`}
+            >
               {bottomText}
             </span>
           </>
         );
 
-        const cellClass = `flex flex-col items-center gap-1.5 px-3 py-2.5 short-mobile:gap-1 short-mobile:py-1.5 sm:gap-2 sm:px-4 sm:py-3 ${
-          i % 2 === 1 ? "border-l border-gold-500/40" : ""
-        } ${i >= 2 ? "border-t border-gold-500/40" : ""}`;
+        const cellClass = `flex flex-col items-center ${
+          sm
+            ? "gap-1 px-2 py-1.5 short-mobile:gap-0.5 short-mobile:py-1 sm:gap-1.5 sm:px-3 sm:py-2"
+            : "gap-1.5 px-3 py-2.5 short-mobile:gap-1 short-mobile:py-1.5 sm:gap-2 sm:px-4 sm:py-3"
+        } ${i % 2 === 1 ? "border-l border-gold-500/40" : ""} ${
+          i >= 2 ? "border-t border-gold-500/40" : ""
+        }`;
 
         if (!shouldAnimate) {
           return (
