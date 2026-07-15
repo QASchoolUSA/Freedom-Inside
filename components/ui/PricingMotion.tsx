@@ -61,7 +61,7 @@ export function PricingMotion({
       viewport={{ once: true, margin: "-80px" }}
     >
       <motion.div variants={rise} className="w-full">
-        <FeatureIconsGrid animated />
+        <FeatureIconsGrid animated size="sm" />
       </motion.div>
 
       <motion.div variants={rise} className="w-full">
@@ -103,7 +103,7 @@ function StaticBlock({
 }) {
   return (
     <div className="flex w-full flex-col items-center">
-      <FeatureIconsGrid />
+      <FeatureIconsGrid size="sm" />
       <PriceCard oldPrice={oldPrice} nowLabel={nowLabel} price={price} staticMark />
       {offer ? <OfferBadge text={offer} staticMark /> : null}
       <CtaButton className="mt-3.5 w-full max-w-md !py-3 !text-base short-mobile:mt-2.5 sm:!text-lg short:mt-3">

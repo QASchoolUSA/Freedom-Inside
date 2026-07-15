@@ -24,8 +24,8 @@ export function FeatureIconsGrid({
 
   return (
     <div
-      className={`mx-auto grid w-full grid-cols-2 ${
-        sm ? "max-w-sm sm:max-w-md" : "max-w-lg sm:max-w-xl"
+      className={`mx-auto grid w-full grid-cols-4 ${
+        sm ? "max-w-md sm:max-w-lg" : "max-w-lg sm:max-w-xl"
       } ${className}`}
     >
       {features.map((f, i) => {
@@ -59,7 +59,7 @@ export function FeatureIconsGrid({
               </span>
             ) : (
               <span
-                className={`font-semibold uppercase tracking-[0.14em] leading-none text-cream-50 ${
+                className={`text-center font-semibold uppercase tracking-[0.12em] leading-tight text-cream-50 ${
                   sm ? "text-[9px] sm:text-[10px]" : "text-[10px] sm:text-[11px]"
                 }`}
               >
@@ -67,7 +67,7 @@ export function FeatureIconsGrid({
               </span>
             )}
             <span
-              className={`font-semibold uppercase tracking-[0.14em] leading-none text-cream-50 ${
+              className={`text-center font-semibold uppercase tracking-[0.12em] leading-tight text-cream-50 ${
                 sm ? "text-[9px] sm:text-[10px]" : "text-[10px] sm:text-[11px]"
               }`}
             >
@@ -78,11 +78,9 @@ export function FeatureIconsGrid({
 
         const cellClass = `flex flex-col items-center ${
           sm
-            ? "gap-1 px-2 py-1.5 short-mobile:gap-0.5 short-mobile:py-1 sm:gap-1.5 sm:px-3 sm:py-2"
-            : "gap-1.5 px-3 py-2.5 short-mobile:gap-1 short-mobile:py-1.5 sm:gap-2 sm:px-4 sm:py-3"
-        } ${i % 2 === 1 ? "border-l border-gold-500/40" : ""} ${
-          i >= 2 ? "border-t border-gold-500/40" : ""
-        }`;
+            ? "gap-1 px-1.5 py-1.5 short-mobile:gap-0.5 short-mobile:py-1 sm:gap-1.5 sm:px-2 sm:py-2"
+            : "gap-1.5 px-1.5 py-2.5 short-mobile:gap-1 short-mobile:py-1.5 sm:gap-2 sm:px-2 sm:py-3"
+        } ${i > 0 ? "border-l border-gold-500/40" : ""}`;
 
         if (!shouldAnimate) {
           return (
