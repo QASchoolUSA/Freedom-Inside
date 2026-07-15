@@ -40,7 +40,7 @@ export function HeroCtaSection({
   return (
     <section
       id={id}
-      className="relative flex max-sm:h-svh max-sm:max-h-svh flex-col overflow-hidden sm:min-h-svh"
+      className="relative flex min-h-svh flex-col overflow-hidden"
     >
       <Image
         src="/images/hero.jpg"
@@ -64,7 +64,7 @@ export function HeroCtaSection({
       <div className="absolute inset-0 bg-gradient-to-b from-teal-950/93 from-0% via-teal-950/50 via-[32%] to-teal-950/78 sm:from-teal-950/90 sm:via-teal-950/38 sm:via-40% sm:to-teal-950/75" />
       <div className="sparkles absolute inset-0 opacity-55" />
 
-      <div className={`relative mx-auto flex w-full max-w-3xl max-sm:min-h-0 flex-1 flex-col items-center px-5 pb-8 text-center ${topPadding}`}>
+      <div className={`relative mx-auto flex w-full max-w-3xl max-sm:min-h-0 flex-1 flex-col items-center px-5 pb-[max(2rem,env(safe-area-inset-bottom,0px))] text-center ${topPadding}`}>
         <Reveal>
           <Lotus className="mx-auto h-3.5 w-5 text-gold-400 sm:h-4 sm:w-6" />
         </Reveal>
