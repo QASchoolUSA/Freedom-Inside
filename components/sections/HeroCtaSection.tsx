@@ -3,6 +3,7 @@ import { CtaButton } from "@/components/ui/CtaButton";
 import { FeatureIconsGrid } from "@/components/ui/FeatureIconsGrid";
 import { Ornament, Lotus } from "@/components/ui/Ornament";
 import { Reveal } from "@/components/ui/Reveal";
+import { SellLeads } from "@/components/ui/SellLeads";
 
 type HeroCtaSectionProps = {
   id?: string;
@@ -79,12 +80,7 @@ export function HeroCtaSection({
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mx-auto mt-3.5 max-w-[24rem] font-display text-[1.4rem] font-bold leading-snug tracking-[0.01em] text-cream-50 drop-shadow-[0_2px_10px_rgba(6,35,43,0.9)] short-mobile:mt-2.5 short-mobile:text-xl sm:mt-5 sm:max-w-2xl sm:text-[2.125rem] short:text-3xl">
-            {lead1}
-          </p>
-          <p className="mx-auto mt-3.5 max-w-[23rem] font-display text-[1.2rem] font-bold leading-snug text-gold-300 drop-shadow-[0_2px_10px_rgba(6,35,43,0.9)] short-mobile:mt-2.5 short-mobile:text-lg sm:mt-4 sm:max-w-xl sm:text-[1.75rem] short:text-2xl">
-            {lead2}
-          </p>
+          <SellLeads lead1={lead1} lead2={lead2} />
         </Reveal>
 
         <div className="min-h-8 flex-1 sm:min-h-8" aria-hidden />
