@@ -19,7 +19,11 @@ export type CoursePlan = {
   variant: "withSupport" | "selfPaced";
 };
 
-export function usePricingPlans(): { plans: CoursePlan[]; note: string } {
+export function usePricingPlans(): {
+  withSupport: CoursePlan;
+  selfPaced: CoursePlan;
+  note: string;
+} {
   const t = useTranslations("pricing");
 
   const withSupport: CoursePlan = {
@@ -44,5 +48,5 @@ export function usePricingPlans(): { plans: CoursePlan[]; note: string } {
     variant: "selfPaced",
   };
 
-  return { plans: [withSupport, selfPaced], note: t("note") };
+  return { withSupport, selfPaced, note: t("note") };
 }

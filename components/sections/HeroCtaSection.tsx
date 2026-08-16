@@ -5,6 +5,8 @@ import { Ornament, Lotus } from "@/components/ui/Ornament";
 import { PricingMotion } from "@/components/ui/PricingMotion";
 import { Reveal } from "@/components/ui/Reveal";
 import { SellLeads } from "@/components/ui/SellLeads";
+import { SelfPacedOfferBlock } from "@/components/ui/SelfPacedOfferBlock";
+import { ZENEDU_URL_WITH_SUPPORT } from "@/lib/config";
 
 type HeroCtaSectionProps = {
   id?: string;
@@ -139,9 +141,19 @@ export function HeroCtaSection({
             ) : null}
 
             <Reveal delay={0.3} className="w-full">
-              <CtaButton className="mt-3.5 w-full max-w-md !py-3 !text-base short-mobile:mt-2.5 sm:!text-lg short:mt-3">
+              <CtaButton
+                href={ZENEDU_URL_WITH_SUPPORT}
+                className="mt-3.5 w-full max-w-md !py-3 !text-base short-mobile:mt-2.5 sm:!text-lg short:mt-3"
+              >
                 {cta}
               </CtaButton>
+            </Reveal>
+
+            <Reveal delay={0.35} className="w-full">
+              <SelfPacedOfferBlock />
+            </Reveal>
+
+            <Reveal delay={0.4} className="w-full">
               {note ? (
                 <p className="mx-auto mt-4 max-w-md text-sm text-cream-100/70">{note}</p>
               ) : (

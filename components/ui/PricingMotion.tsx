@@ -3,6 +3,8 @@
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { FeatureIconsGrid } from "@/components/ui/FeatureIconsGrid";
 import { CtaButton } from "@/components/ui/CtaButton";
+import { SelfPacedOfferBlock } from "@/components/ui/SelfPacedOfferBlock";
+import { ZENEDU_URL_WITH_SUPPORT } from "@/lib/config";
 
 const easeOut = [0.22, 0.61, 0.36, 1] as const;
 
@@ -75,13 +77,26 @@ export function PricingMotion({
       ) : null}
 
       <motion.div variants={rise} className="w-full">
-        <CtaButton className="mt-3.5 w-full max-w-md !py-3 !text-base short-mobile:mt-2.5 sm:!text-lg short:mt-3">
+        <CtaButton
+          href={ZENEDU_URL_WITH_SUPPORT}
+          className="mt-3.5 w-full max-w-md !py-3 !text-base short-mobile:mt-2.5 sm:!text-lg short:mt-3"
+        >
           {cta}
         </CtaButton>
-        {note ? (
-          <p className="mx-auto mt-4 max-w-md text-sm text-cream-100/70">{note}</p>
-        ) : null}
       </motion.div>
+
+      <motion.div variants={rise} className="w-full">
+        <SelfPacedOfferBlock />
+      </motion.div>
+
+      {note ? (
+        <motion.p
+          variants={rise}
+          className="mx-auto mt-4 max-w-md text-sm text-cream-100/70"
+        >
+          {note}
+        </motion.p>
+      ) : null}
     </motion.div>
   );
 }
@@ -106,9 +121,13 @@ function StaticBlock({
       <FeatureIconsGrid size="sm" />
       <PriceCard oldPrice={oldPrice} nowLabel={nowLabel} price={price} staticMark />
       {offer ? <OfferBadge text={offer} staticMark /> : null}
-      <CtaButton className="mt-3.5 w-full max-w-md !py-3 !text-base short-mobile:mt-2.5 sm:!text-lg short:mt-3">
+      <CtaButton
+        href={ZENEDU_URL_WITH_SUPPORT}
+        className="mt-3.5 w-full max-w-md !py-3 !text-base short-mobile:mt-2.5 sm:!text-lg short:mt-3"
+      >
         {cta}
       </CtaButton>
+      <SelfPacedOfferBlock />
       {note ? (
         <p className="mx-auto mt-4 max-w-md text-sm text-cream-100/70">{note}</p>
       ) : null}
