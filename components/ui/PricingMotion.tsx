@@ -63,6 +63,10 @@ export function PricingMotion({
       viewport={{ once: true, margin: "-80px" }}
     >
       <motion.div variants={rise} className="w-full">
+        <SelfPacedOfferBlock />
+      </motion.div>
+
+      <motion.div variants={rise} className="w-full">
         <FeatureIconsGrid animated size="sm" />
       </motion.div>
 
@@ -83,10 +87,6 @@ export function PricingMotion({
         >
           {cta}
         </CtaButton>
-      </motion.div>
-
-      <motion.div variants={rise} className="w-full">
-        <SelfPacedOfferBlock />
       </motion.div>
 
       {note ? (
@@ -118,6 +118,7 @@ function StaticBlock({
 }) {
   return (
     <div className="flex w-full flex-col items-center">
+      <SelfPacedOfferBlock />
       <FeatureIconsGrid size="sm" />
       <PriceCard oldPrice={oldPrice} nowLabel={nowLabel} price={price} staticMark />
       {offer ? <OfferBadge text={offer} staticMark /> : null}
@@ -127,7 +128,6 @@ function StaticBlock({
       >
         {cta}
       </CtaButton>
-      <SelfPacedOfferBlock />
       {note ? (
         <p className="mx-auto mt-4 max-w-md text-sm text-cream-100/70">{note}</p>
       ) : null}

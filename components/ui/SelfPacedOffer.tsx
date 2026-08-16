@@ -9,7 +9,7 @@ export function SelfPacedOffer({ plan }: { plan: CoursePlan }) {
   const t = useTranslations("pricing");
 
   return (
-    <div className="mx-auto mt-5 flex w-full max-w-md flex-col items-stretch gap-3 rounded-2xl border border-gold-500/45 bg-teal-950/50 px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between short-mobile:mt-3">
+    <div className="mx-auto mb-5 flex w-full max-w-md flex-col items-stretch gap-3 rounded-2xl border border-gold-500/45 bg-teal-950/50 px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between short-mobile:mb-3">
       <div className="text-left">
         <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-cream-100/55">
           {t("selfPaced.alsoAvailable")}

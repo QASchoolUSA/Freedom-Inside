@@ -103,10 +103,14 @@ export function HeroCtaSection({
         ) : (
           <>
             <Reveal delay={0.1} className="w-full">
-              <FeatureIconsGrid size="sm" />
+              <SelfPacedOfferBlock />
             </Reveal>
 
             <Reveal delay={0.2} className="w-full">
+              <FeatureIconsGrid size="sm" />
+            </Reveal>
+
+            <Reveal delay={0.25} className="w-full">
               <div className="mx-auto mt-5 flex w-full max-w-md items-stretch overflow-hidden rounded-2xl border border-gold-500/70 bg-teal-950/65 shadow-card backdrop-blur-sm short-mobile:mt-3 short:mt-4">
                 <div className="flex flex-1 items-center justify-center px-4 py-3 short-mobile:py-2 sm:px-6 sm:py-4 short:py-2.5">
                   <span className="relative font-display text-2xl text-cream-100/75 sm:text-3xl">
@@ -126,7 +130,7 @@ export function HeroCtaSection({
             </Reveal>
 
             {offer ? (
-              <Reveal delay={0.25} className="w-full">
+              <Reveal delay={0.3} className="w-full">
                 <div className="mx-auto mt-4 flex justify-center short-mobile:mt-3 short:mt-3.5">
                   <p className="inline-flex max-w-[22rem] items-center gap-1.5 rounded-xl border border-gold-500/45 bg-gradient-to-r from-gold-500/15 via-gold-500/10 to-transparent px-3.5 py-2 text-left shadow-[0_0_24px_-8px_rgba(217,179,106,0.45)] backdrop-blur-[2px] sm:max-w-md sm:gap-2 sm:px-4 sm:py-2.5">
                     <span className="shrink-0 text-[1.05rem] leading-none sm:text-lg" aria-hidden>
@@ -140,17 +144,13 @@ export function HeroCtaSection({
               </Reveal>
             ) : null}
 
-            <Reveal delay={0.3} className="w-full">
+            <Reveal delay={0.35} className="w-full">
               <CtaButton
                 href={ZENEDU_URL_WITH_SUPPORT}
                 className="mt-3.5 w-full max-w-md !py-3 !text-base short-mobile:mt-2.5 sm:!text-lg short:mt-3"
               >
                 {cta}
               </CtaButton>
-            </Reveal>
-
-            <Reveal delay={0.35} className="w-full">
-              <SelfPacedOfferBlock />
             </Reveal>
 
             <Reveal delay={0.4} className="w-full">
