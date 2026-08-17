@@ -17,7 +17,6 @@ export function SelfPacedOffer({ plan }: { plan: CoursePlan }) {
       </div>
       <CtaButton
         href={plan.href}
-        variant="outline"
         className="!px-5 !py-2.5 !text-xs tracking-[0.14em] sm:!text-sm"
       >
         {plan.cta}
