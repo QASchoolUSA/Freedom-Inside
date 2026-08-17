@@ -6,6 +6,7 @@ import { PricingMotion } from "@/components/ui/PricingMotion";
 import { Reveal } from "@/components/ui/Reveal";
 import { SellLeads } from "@/components/ui/SellLeads";
 import { SelfPacedOfferBlock } from "@/components/ui/SelfPacedOfferBlock";
+import { DownArrow } from "@/components/ui/DownArrow";
 import { ZENEDU_URL_WITH_SUPPORT } from "@/lib/config";
 
 type HeroCtaSectionProps = {
@@ -108,6 +109,7 @@ export function HeroCtaSection({
 
             <Reveal delay={0.2} className="w-full">
               <FeatureIconsGrid size="sm" />
+              <DownArrow className="mt-3 short-mobile:mt-2" />
             </Reveal>
 
             <Reveal delay={0.25} className="w-full">

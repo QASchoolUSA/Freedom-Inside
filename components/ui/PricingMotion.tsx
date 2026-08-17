@@ -4,6 +4,7 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { FeatureIconsGrid } from "@/components/ui/FeatureIconsGrid";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { SelfPacedOfferBlock } from "@/components/ui/SelfPacedOfferBlock";
+import { DownArrow } from "@/components/ui/DownArrow";
 import { ZENEDU_URL_WITH_SUPPORT } from "@/lib/config";
 
 const easeOut = [0.22, 0.61, 0.36, 1] as const;
@@ -68,6 +69,7 @@ export function PricingMotion({
 
       <motion.div variants={rise} className="w-full">
         <FeatureIconsGrid animated size="sm" />
+        <DownArrow className="mt-3 short-mobile:mt-2" />
       </motion.div>
 
       <motion.div variants={rise} className="w-full">
@@ -120,6 +122,7 @@ function StaticBlock({
     <div className="flex w-full flex-col items-center">
       <SelfPacedOfferBlock />
       <FeatureIconsGrid size="sm" />
+      <DownArrow className="mt-3 short-mobile:mt-2" />
       <PriceCard oldPrice={oldPrice} nowLabel={nowLabel} price={price} staticMark />
       {offer ? <OfferBadge text={offer} staticMark /> : null}
       <CtaButton
