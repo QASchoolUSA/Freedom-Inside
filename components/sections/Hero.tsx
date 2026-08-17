@@ -3,7 +3,6 @@ import { HeroCtaSection } from "@/components/sections/HeroCtaSection";
 
 export function Hero() {
   const t = useTranslations("hero");
-  const tp = useTranslations("pricing");
 
   return (
     <HeroCtaSection
@@ -11,11 +10,6 @@ export function Hero() {
       title={t("title")}
       lead1={t("lead1")}
       lead2={t("lead2")}
-      cta={t("cta")}
-      oldPrice={tp("oldPrice")}
-      nowLabel={tp("nowLabel")}
-      price={tp("price")}
-      offer={tp("offer")}
       priority
       topPadding="pt-[4.25rem] sm:pt-16"
     />

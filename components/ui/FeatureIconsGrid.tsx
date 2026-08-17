@@ -2,9 +2,9 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { IconCalendar, IconChat, IconLotus, IconPlay } from "@/components/ui/icons";
+import { IconCalendar, IconLotus, IconPlay } from "@/components/ui/icons";
 
-const FEATURE_ICONS = [IconPlay, IconLotus, IconChat, IconCalendar];
+const FEATURE_ICONS = [IconPlay, IconLotus, IconCalendar];
 const easeOut = [0.22, 0.61, 0.36, 1] as const;
 
 export function FeatureIconsGrid({
@@ -24,12 +24,12 @@ export function FeatureIconsGrid({
 
   return (
     <div
-      className={`mx-auto grid w-full grid-cols-4 ${
+      className={`mx-auto grid w-full grid-cols-3 ${
         sm ? "max-w-md sm:max-w-lg" : "max-w-lg sm:max-w-xl"
       } ${className}`}
     >
       {features.map((f, i) => {
-        const Icon = FEATURE_ICONS[i];
+        const Icon = FEATURE_ICONS[i] ?? IconCalendar;
         const labelLines = f.label.split("\n");
         const topText = f.value || labelLines[0];
         const bottomText = f.value ? f.label : (labelLines[1] ?? "");

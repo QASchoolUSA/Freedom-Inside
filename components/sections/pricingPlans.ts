@@ -12,8 +12,6 @@ export type CoursePlan = {
   price: string;
   cta: string;
   href: string;
-  oldPrice?: string;
-  nowLabel?: string;
   offer?: string;
   featured?: boolean;
   variant: "withSupport" | "selfPaced";
@@ -29,8 +27,6 @@ export function usePricingPlans(): {
   const withSupport: CoursePlan = {
     badge: t("withSupport.badge"),
     features: t.raw("withSupport.features") as FeatureItem[],
-    oldPrice: t("withSupport.oldPrice"),
-    nowLabel: t("withSupport.nowLabel"),
     price: t("withSupport.price"),
     offer: t("withSupport.offer"),
     cta: t("withSupport.cta"),

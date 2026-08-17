@@ -10,11 +10,6 @@ export function Pricing() {
       title={t("title")}
       lead1={t("lead1")}
       lead2={t("lead2")}
-      cta={t("cta")}
-      oldPrice={t("oldPrice")}
-      nowLabel={t("nowLabel")}
-      price={t("price")}
-      offer={t("offer")}
       note={t("note")}
       enhancedMotion
     />
