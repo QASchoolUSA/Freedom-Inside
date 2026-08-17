@@ -7,7 +7,7 @@ import type { CoursePlan } from "@/components/sections/pricingPlans";
 export function SelfPacedOffer({ plan }: { plan: CoursePlan }) {
   return (
     <div className="mx-auto mb-5 flex w-full max-w-md flex-col items-stretch gap-3 rounded-2xl border border-gold-500/45 bg-teal-950/50 px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between short-mobile:mb-3">
-      <div className="text-left">
+      <div className="text-center sm:text-left">
         <p className="font-display text-sm font-semibold uppercase tracking-[0.14em] text-cream-50 sm:text-base">
           {plan.badge}
         </p>
